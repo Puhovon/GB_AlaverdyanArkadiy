@@ -1,17 +1,19 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 namespace Enemy
 {
     public class EnemyMovement : MonoBehaviour
     {
-        [SerializeField] private Transform playerTransform;
         [SerializeField] private float speed;
-        private NavMeshAgent _agent;
 
-        private void Start()
+        private NavMeshAgent _agent;
+        private Transform playerTransform;
+
+        
+        public void Initialize(Transform playerTransform)
         {
+            this.playerTransform = playerTransform;
             _agent = GetComponent<NavMeshAgent>();
             _agent.speed = speed;
         }
@@ -22,7 +24,10 @@ namespace Enemy
             _agent.destination = playerTransform.position;
             
             _agent.isStopped = false;
-            if(_agent.remainingDistance <= 1.5f) _agent.isStopped = true;
+            if(_agent.remainingDistance <= 1.5f)
+            {
+                _agent.isStopped = true;
+            }
         }
     }
 }

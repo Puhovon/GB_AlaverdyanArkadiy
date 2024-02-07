@@ -1,6 +1,7 @@
 ﻿using System;
 using General.Abstracts;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Player
 {
@@ -16,11 +17,6 @@ namespace Player
             _input.onAttack.AddListener(CheckRaycastToAttack);
         }
 
-        private void Update()
-        {
-            
-        }
-
         public void CheckRaycastToAttack()
         {
             
@@ -34,12 +30,6 @@ namespace Player
             {
                 damagable.ApplyDamage(damage);
             }
-        }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.DrawRay(new Ray(transform.position, transform.forward));
-            Gizmos.color = Color.red;
         }
     }
 }
