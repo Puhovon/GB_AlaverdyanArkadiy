@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidbody.velocity = new Vector3(moveDirrection.x * speed, 0, moveDirrection.y * speed);
     }
-    
 
+    public void OnSpeedUpgrade(int speedIncrease)
+    {
+        speed += speedIncrease;
+    }
 }

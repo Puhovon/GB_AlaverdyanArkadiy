@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class UIController : MonoBehaviour
 {
@@ -17,7 +16,7 @@ public class UIController : MonoBehaviour
     
     private void Start()
     {
-        playerHealth.onApplyDamage.AddListener(OnHealthChanged);
+        playerHealth.onHealPointChanged.AddListener(OnHealthChanged);
         onScoreChanged.AddListener(OnScoreChanged);
         OnHealthChanged(playerHealth.CurrentHealth);
         OnScoreChanged(0);

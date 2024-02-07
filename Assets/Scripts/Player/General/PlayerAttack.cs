@@ -17,9 +17,8 @@ namespace Player
             _input.onAttack.AddListener(CheckRaycastToAttack);
         }
 
-        public void CheckRaycastToAttack()
+        private void CheckRaycastToAttack()
         {
-            
             RaycastHit hit;
             if(Physics.Raycast(transform.position, transform.forward, out hit, distance)) Attack(hit);
         }
@@ -31,5 +30,10 @@ namespace Player
                 damagable.ApplyDamage(damage);
             }
         }
+
+        public void DamageUpgrade(int increaseDamage)
+        {
+            damage += increaseDamage;
+        } 
     }
 }
