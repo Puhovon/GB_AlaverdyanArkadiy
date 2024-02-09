@@ -127,7 +127,7 @@ MonoBehaviour:
   onDie:
     m_PersistentCalls:
       m_Calls: []
-  onApplyDamage:
+  onHealPointChanged:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &2770699232574432261
@@ -155,9 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e134588db1a45549755a27e8febea38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 15
   range: 5
-  secondsToNextAttack: 5
+  secondsToNextAttack: 2
 --- !u!114 &3811204793061846544
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,10 +10,11 @@ namespace Player
         [SerializeField] private float distance;
         [SerializeField] private int damage;
 
-        [SerializeField] private PlayerInputs _input;
+        private PlayerInputs _input;
 
-        private void Start()
+        public void Initialize(PlayerInputs input)
         {
+            _input = input;
             _input.onAttack.AddListener(CheckRaycastToAttack);
         }
 

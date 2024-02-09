@@ -9,7 +9,7 @@ public class AbilitySystem : MonoBehaviour
     [SerializeField] private Level level;
 
     public UnityEvent onAbilitySelect = new UnityEvent();
-    private void Start()
+    public void Initialize()
     {
         transform.gameObject.SetActive(false);
         level.onLevelComplete.AddListener(OpenWindowWithAbilities);
@@ -18,13 +18,13 @@ public class AbilitySystem : MonoBehaviour
 
     private void OpenWindowWithAbilities()
     {
+        print("Open Ability Window");
         transform.gameObject.SetActive(true);
         transform.DOScale(new Vector3(0.5f, 0.5f, 1), 1f);
     }
 
     private void CloseWindowWithAbilities()
     {
-        transform.DOScale(new Vector3(0, 0, 1), 1f);
-        transform.gameObject.SetActive(false);
+        transform.DOScale(new Vector3(0, 0, 1), 1f).onComplete = () => transform.gameObject.SetActive(false);
     }
 }

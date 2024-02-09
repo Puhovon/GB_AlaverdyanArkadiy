@@ -11,6 +11,10 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 moveDirrection;
 
+    public void Initialize(PlayerInputs input)
+    {
+        this.input = input;
+    }
     private void FixedUpdate()
     {
         moveDirrection = input.Movement;

@@ -23,7 +23,7 @@ namespace General.GamePlay
 
         private int enemiesCount;
 
-        private void Start()
+        public void Initialize()
         {
             NextLevel();
             onEnemyDie.AddListener(EnemyDie);
@@ -38,13 +38,13 @@ namespace General.GamePlay
 
             if (enemiesCount <= 0)
             {
+                print("level complete");
                 onLevelComplete?.Invoke();
             }
         }
 
         private void NextLevel()
         {
-            
             print("NextLevel");
             maxCountOfEnemies += multiplyerOfEnemiesCount;
             enemiesCount = maxCountOfEnemies;
