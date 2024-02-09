@@ -16,8 +16,10 @@ namespace General.GamePlay
         [SerializeField] private GameObject Enemy;
         [SerializeField] private Transform Player;
         [SerializeField] private UIController ui;
+        [SerializeField] private AbilitySystem abilitySystem;
         
         [HideInInspector] public UnityEvent onEnemyDie = new UnityEvent();
+        [HideInInspector] public UnityEvent onLevelComplete = new UnityEvent();
 
         private int enemiesCount;
 
@@ -25,6 +27,7 @@ namespace General.GamePlay
         {
             NextLevel();
             onEnemyDie.AddListener(EnemyDie);
+            abilitySystem.onAbilitySelect.AddListener(NextLevel);
             enemiesCount = maxCountOfEnemies;
         }
 
@@ -33,7 +36,10 @@ namespace General.GamePlay
             enemiesCount -= 1;
             print(enemiesCount);
 
-            if (enemiesCount <= 0) NextLevel();
+            if (enemiesCount <= 0)
+            {
+                onLevelComplete?.Invoke();
+            }
         }
 
         private void NextLevel()
