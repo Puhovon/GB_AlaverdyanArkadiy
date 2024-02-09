@@ -1,30 +1,33 @@
 using UnityEngine;
 
-public class PlayerRoatation : MonoBehaviour
+namespace Player.General
 {
-    float camRayLength = 100f;          
-    
-    void FixedUpdate ()
+    public class PlayerRoatation : MonoBehaviour
     {
-        Turning ();
-    }
+        float camRayLength = 100f;
 
-
-    void Turning ()
-    {
-        Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        RaycastHit hit;
-
-        if(Physics.Raycast (camRay, out hit, camRayLength))
+        void FixedUpdate()
         {
-            Vector3 playerToMouse = hit.point - transform.position;
+            Turning();
+        }
 
-            playerToMouse.y = 0f;
 
-            Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
+        void Turning()
+        {
+            Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            transform.rotation = newRotation;
+            RaycastHit hit;
+
+            if (Physics.Raycast(camRay, out hit, camRayLength))
+            {
+                Vector3 playerToMouse = hit.point - transform.position;
+
+                playerToMouse.y = 0f;
+
+                Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
+
+                transform.rotation = newRotation;
+            }
         }
     }
 }

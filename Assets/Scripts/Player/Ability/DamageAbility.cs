@@ -1,16 +1,19 @@
-using Player;
+using Player.General;
 using UnityEngine;
 
-public class DamageAbility : MonoBehaviour
+namespace Player.Ability
 {
-    [SerializeField] private int damageIncrease;
-    [SerializeField] private PlayerAttack damage;
-    [SerializeField] private AbilitySystem abilitySystem;
-
-    public void OnDamageUpgrade()
+    public class DamageAbility : MonoBehaviour
     {
-        damage.DamageUpgrade(damageIncrease);
-        transform.gameObject.SetActive(false);
-        abilitySystem.onAbilitySelect?.Invoke();
+        [SerializeField] private int damageIncrease;
+        [SerializeField] private PlayerAttack damage;
+        [SerializeField] private AbilitySystem abilitySystem;
+
+        public void OnDamageUpgrade()
+        {
+            damage.DamageUpgrade(damageIncrease);
+            transform.gameObject.SetActive(false);
+            abilitySystem.onAbilitySelect?.Invoke();
+        }
     }
 }

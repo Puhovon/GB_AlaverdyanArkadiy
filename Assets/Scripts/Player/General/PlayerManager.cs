@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using General.Entities;
+using UnityEngine;
 
-namespace Player
+namespace Player.General
 {
     public class PlayerManager : MonoBehaviour
     {

@@ -1,26 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
+using General.Entities;
 using UnityEngine;
 
-public class HealthAbility : MonoBehaviour
+namespace Player.Ability
 {
-    [SerializeField] private Health health;
-    [SerializeField] private int healthIncrease;
-    [SerializeField] private AbilitySystem abilitySystem;
-
-
-    public void OnHealthUpgrade()
+    public class HealthAbility : MonoBehaviour
     {
-        health.UpgradeHealth(healthIncrease);
-        transform.gameObject.SetActive(false);
-        abilitySystem.onAbilitySelect?.Invoke();
-    }
+        [SerializeField] private Health health;
+        [SerializeField] private int healthIncrease;
+        [SerializeField] private AbilitySystem abilitySystem;
 
-    public void OnFullHeal()
-    {
-        health.FullHeal();
-        transform.gameObject.SetActive(false);
-        abilitySystem.onAbilitySelect?.Invoke();
 
+        public void OnHealthUpgrade()
+        {
+            health.UpgradeHealth(healthIncrease);
+            transform.gameObject.SetActive(false);
+            abilitySystem.onAbilitySelect?.Invoke();
+        }
+
+        public void OnFullHeal()
+        {
+            health.FullHeal();
+            transform.gameObject.SetActive(false);
+            abilitySystem.onAbilitySelect?.Invoke();
+
+        }
     }
 }

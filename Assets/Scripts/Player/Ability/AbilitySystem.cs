@@ -3,28 +3,32 @@ using General.GamePlay;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class AbilitySystem : MonoBehaviour
+namespace Player.Ability
 {
-    [SerializeField] private GameObject abilityPanel;
-    [SerializeField] private Level level;
-
-    public UnityEvent onAbilitySelect = new UnityEvent();
-    public void Initialize()
+    public class AbilitySystem : MonoBehaviour
     {
-        transform.gameObject.SetActive(false);
-        level.onLevelComplete.AddListener(OpenWindowWithAbilities);
-        onAbilitySelect.AddListener(CloseWindowWithAbilities);
-    }
+        [SerializeField] private GameObject abilityPanel;
+        [SerializeField] private Level level;
 
-    private void OpenWindowWithAbilities()
-    {
-        print("Open Ability Window");
-        transform.gameObject.SetActive(true);
-        transform.DOScale(new Vector3(0.5f, 0.5f, 1), 1f);
-    }
+        public UnityEvent onAbilitySelect = new UnityEvent();
 
-    private void CloseWindowWithAbilities()
-    {
-        transform.DOScale(new Vector3(0, 0, 1), 1f).onComplete = () => transform.gameObject.SetActive(false);
+        public void Initialize()
+        {
+            transform.gameObject.SetActive(false);
+            level.onLevelComplete.AddListener(OpenWindowWithAbilities);
+            onAbilitySelect.AddListener(CloseWindowWithAbilities);
+        }
+
+        private void OpenWindowWithAbilities()
+        {
+            print("Open Ability Window");
+            transform.gameObject.SetActive(true);
+            transform.DOScale(new Vector3(0.5f, 0.5f, 1), 1f);
+        }
+
+        private void CloseWindowWithAbilities()
+        {
+            transform.DOScale(new Vector3(0, 0, 1), 1f).onComplete = () => transform.gameObject.SetActive(false);
+        }
     }
 }

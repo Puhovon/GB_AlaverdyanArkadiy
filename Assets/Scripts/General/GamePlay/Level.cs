@@ -1,4 +1,6 @@
 ﻿using Enemy;
+using General.Entities;
+using Player.Ability;
 using UnityEngine;
 using UnityEngine.Events;
 

@@ -1,4 +1,5 @@
-﻿using General.GamePlay;
+﻿using General.Entities;
+using General.GamePlay;
 using UnityEngine;
 
 namespace Enemy
@@ -21,7 +22,6 @@ namespace Enemy
 
         private void Die()
         {
-            print("Kill");
             ui.onScoreChanged.Invoke(score);
             level.onEnemyDie.Invoke();
             Destroy(gameObject);

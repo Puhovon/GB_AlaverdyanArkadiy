@@ -1,9 +1,7 @@
-﻿using System;
-using General.Abstracts;
+﻿using General.Abstracts;
 using UnityEngine;
-using UnityEngine.Events;
 
-namespace Player
+namespace Player.General
 {
     public class PlayerAttack : MonoBehaviour, IAttaker
     {

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using General.Entities;
 using UnityEngine;
 
 namespace Enemy

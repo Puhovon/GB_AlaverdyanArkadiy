@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using General.Abstracts;
 using UnityEngine;
 
@@ -46,6 +45,5 @@ namespace Enemy
         {
             IsPlayerInAttackDistance();
         }
-        
     }
 }

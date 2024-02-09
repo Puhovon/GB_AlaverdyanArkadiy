@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace Player
+namespace Player.General
 {
     public class PlayerInputs : MonoBehaviour
     {

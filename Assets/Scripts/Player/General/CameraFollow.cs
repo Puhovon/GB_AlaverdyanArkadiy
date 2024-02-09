@@ -1,19 +1,21 @@
-using System;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+namespace Player.General
 {
-    [SerializeField] private Transform player;
-
-    private Vector3 offset;
-
-    private void Start()
+    public class CameraFollow : MonoBehaviour
     {
-        offset = transform.position - player.position;
-    }
+        [SerializeField] private Transform player;
 
-    private void Update()
-    {
-        transform.position = player.position + offset;
+        private Vector3 offset;
+
+        private void Start()
+        {
+            offset = transform.position - player.position;
+        }
+
+        private void Update()
+        {
+            transform.position = player.position + offset;
+        }
     }
 }

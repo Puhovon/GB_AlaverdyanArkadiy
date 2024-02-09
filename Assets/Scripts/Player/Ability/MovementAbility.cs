@@ -1,16 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using Player.General;
 using UnityEngine;
 
-public class MovementAbility : MonoBehaviour
+namespace Player.Ability
 {
-    [SerializeField] private int speedIncrease;
-    [SerializeField] private PlayerMovement movement;
-    [SerializeField] private AbilitySystem abilitySystem;
-
-    public void OnSpeedUpgrade()
+    public class MovementAbility : MonoBehaviour
     {
-        movement.OnSpeedUpgrade(speedIncrease);
-        abilitySystem.onAbilitySelect?.Invoke();
+        [SerializeField] private int speedIncrease;
+        [SerializeField] private PlayerMovement movement;
+        [SerializeField] private AbilitySystem abilitySystem;
+
+        public void OnSpeedUpgrade()
+        {
+            movement.OnSpeedUpgrade(speedIncrease);
+            abilitySystem.onAbilitySelect?.Invoke();
+        }
     }
 }
