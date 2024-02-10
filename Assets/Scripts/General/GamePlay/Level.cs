@@ -59,6 +59,7 @@ namespace General.GamePlay
                 g.GetComponent<Health>().Initialize();
                 g.GetComponent<EnemyMovement>().Initialize(Player);
                 g.GetComponent<EnemyDie>().Initialize(ui, this);
+                g.GetComponent<EnemyHealthBar>().Initialize();
             }
 
         }

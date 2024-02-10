@@ -10,10 +10,12 @@ namespace Enemy
         [SerializeField] private EnemyAttack attack;
         [SerializeField] private Health health;
         [SerializeField] private Transform playerTransform;
+        [SerializeField] private EnemyHealthBar hpBar;
         private void Start()
         {
             movement.Initialize(playerTransform);
             health.Initialize();
+            hpBar.Initialize();
         }
     }
 }
